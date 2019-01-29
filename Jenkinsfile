@@ -13,17 +13,29 @@ pipeline {
              sh 'npm install'
          }
        }
+       stage('NPM Audit Fix') {
+          steps {
+             sh 'npm audit fix'
+         }
+       }
+
+       stage('IOS Platform Remove') {
+          steps {
+             sh 'ionic cordova platform rm ios'
+             
+          }
+       }
 
        stage('IOS Build') {
           steps {
-             sh 'ionic cordova build ios --release'
+             sh 'ionic cordova build ios'
              
           }
        }
 
        stage('Android Build') {
           steps {
-               sh 'ionic cordova build android --release'
+               sh 'ionic cordova build android'
                
           }
        }
@@ -39,7 +51,8 @@ pipeline {
 
       stage('Stage Web Build') {
           steps {
-              sh 'npm run build --prod'
+            //   sh 'npm run build --prod'
+              echo "Android"
           }
        }
 
