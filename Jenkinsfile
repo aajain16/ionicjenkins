@@ -25,7 +25,26 @@ pipeline {
              
           }
        }
+        stage('IOS Platform ADD') {
+          steps {
+             sh 'ionic cordova platform add ios'
+             
+          }
+       }
 
+       stage('Android Platform Add') {
+          steps {
+               sh 'ionic cordova platform add android'
+               
+          }
+
+   stage('Android Build') {
+          steps {
+               sh 'ionic cordova build android'
+               
+          }
+       }
+       
        stage('IOS Build') {
           steps {
              sh 'ionic cordova build ios'
@@ -33,12 +52,7 @@ pipeline {
           }
        }
 
-       stage('Android Build') {
-          steps {
-               sh 'ionic cordova build android'
-               
-          }
-       }
+    
 
        stage('APK Sign') {
           steps {
