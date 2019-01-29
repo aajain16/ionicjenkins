@@ -6,33 +6,34 @@ pipeline {
         PATH='/usr/local/bin:/usr/bin:/bin'
 	}
 
-    stages {
-
-       stage('NPM Setup') {
-          steps {
-             sh 'npm install'
+   stages {
+      stage('NPM Setup') {
+         steps {
+            sh 'npm install'
          }
-       }
-       stage('NPM Audit Fix') {
-          steps {
-             sh 'npm audit fix'
+      }
+      stage('NPM Audit Fix') {
+         steps {
+            sh 'npm audit fix'
          }
-       }
-
-       stage('IOS Platform Remove') {
-          steps {
-             sh 'ionic cordova platform rm ios'
-             
-          }
-       }
-        stage('IOS Platform ADD') {
-          steps {
-             sh 'ionic cordova platform add ios'
-             
-          }
-       }
-       stage('APK Sign') {
-          steps {
+      }
+      stage('IOS Platform Remove') {
+         steps {
+            sh 'ionic cordova platform rm ios'     
+         }
+      }
+      stage('IOS Platform ADD') {
+         steps {
+            sh 'ionic cordova platform add ios'      
+         }
+      }
+      stage('Android Build') {
+         steps {
+            sh 'ionic cordova build android'      
+         }
+      }
+      stage('APK Sign') {
+         steps {
             // sh 'jarsigner -storepass your_password -keystore keys/yourkey.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk nameApp'
               echo "Android"
           }
