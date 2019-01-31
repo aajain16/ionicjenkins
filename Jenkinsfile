@@ -22,14 +22,25 @@ pipeline {
             sh 'ionic cordova platform rm ios'     
          }
       }
+   
       stage('IOS Platform ADD') {
          steps {
             sh 'ionic cordova platform add ios'      
          }
       }
+          stage('IOS Build') {
+         steps {
+            sh 'ionic cordova build ios'    
+         }
+      }
+        stage('Android Platform ADD') {
+         steps {
+            sh 'ionic cordova platform add android'    
+         }
+      }
       stage('Android Build') {
          steps {
-            sh 'ionic cordova build android'      
+            sh 'ionic cordova build android'    
          }
       }
       stage('APK Sign') {
