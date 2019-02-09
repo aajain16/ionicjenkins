@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment {
-        PATH='C:\Program Files\nodejs'
+        PATH='C:\Users\OM\.jenkins\nodes'
 	}
 
    stages {
