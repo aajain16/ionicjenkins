@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment {
-        PATH='C:\Program Files\nodejs\npm.cmd'
+         PATH='/usr/local/bin:/usr/bin:/bin'
 	}
 
    stages {
