@@ -23,6 +23,11 @@ pipeline {
             sh 'ionic cordova platform add android'    
          }
       }
+      stage('App Script') {
+         steps {
+              sh 'npm i -D -E @ionic/app-scripts'
+         }
+      }
       stage('Android Build') {
          steps {
             sh 'ionic cordova build android'    
