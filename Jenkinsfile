@@ -34,12 +34,12 @@ pipeline {
       }
       stage('iOS Platform Remove ') {
          steps {
-            sh 'ionic cordova platfrom rm ios'    
+            sh 'ionic cordova platform rm ios'    
          }
       }
      stage('iOS Platform Add ') {
          steps {
-            sh 'ionic cordova platfrom add ios'    
+            sh 'ionic cordova platform add ios'    
          }
       }
      stage('iOS Build') {
