@@ -50,6 +50,7 @@ pipeline {
      
       stage('APK Sign') {
         steps {
+             sh 'ionic cordova build android --release'
              sh 'jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore platforms/android/**/**/**/**/**/*-unsigned.apk -storepass test123456  alias_name' 
              sh '$HOME/Library/Android/sdk/build-tools/28.0.3/zipalign -v 4 platforms/android/**/**/**/**/**/**-unsigned.apk platforms/android/app/build/outputs/apk/release/Jenkins.apk'
           }
