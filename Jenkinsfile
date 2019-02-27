@@ -48,12 +48,12 @@ pipeline {
          }
       }
      
-      //stage('APK Sign') {
-        // steps {
-            // sh 'jarsigner -storepass your_password -keystore keys/yourkey.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk nameApp'
-          //    echo "Android"
-          //}
-       //}
+      stage('APK Sign') {
+        steps {
+             sh 'jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore platforms/android/**/**/**/**/**/*-unsigned.apk alias_name'
+             sh '$HOME/Library/Android/sdk/build-tools/28.0.3/zipalign -v 4 platforms/android/**/**/**/**/**/**-unsigned.apk platforms/android/app/build/outputs/apk/release/Jenkins.apk'
+          }
+       }
 
 
 
