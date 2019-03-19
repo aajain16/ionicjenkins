@@ -48,7 +48,7 @@ pipeline {
       }
      stage('make iOS app '){
        steps {
-         sh 'cd platform'
+         sh 'cd ionicpipeline/platform'
          sh 'cd ios'
          sh 'xcodebuild -scheme "ionicJenkins"'
        }
