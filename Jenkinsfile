@@ -46,6 +46,11 @@ pipeline {
             sh 'ionic cordova build ios'    
          }
       }
+     stage('make iOS app '){
+       steps {
+         sh' xcodebuild -scheme "ionicJenkins"'
+       }
+     }
      
       //stage('APK Sign') {
         //steps {
