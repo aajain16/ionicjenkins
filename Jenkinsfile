@@ -48,6 +48,7 @@ pipeline {
       }
      stage('make iOS app '){
        steps {
+         sh '/Users/Shared/Jenkins/Home/workspace/ionicpipeline/platform/ios'
          sh 'xcodebuild -scheme "ionicJenkins"'
        }
      }
