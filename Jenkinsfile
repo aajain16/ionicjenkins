@@ -1,24 +1,12 @@
 pipeline {
 
     agent any
-  
-  def platform = params?.PLATFORM?.trim()                      // e.g. "ios" or "android"
-  BUILD_CONFIG = params?.BUILD_CONFIG?.trim()                 // e.g. "Debug" or "Release"
-CODE_SIGN_PROFILE_ID = params?.BUILD_CREDENTIAL_ID?.trim() 
-  
-  PROJECT_NAME = "Ionic Jenkins Demo"
-  
-  echo '${BUILD_CONFIG}'
-  echo '${platform}'
-  
-  
-
     environment {
          PATH='/usr/local/bin:/usr/bin:/bin'
 	}
 
    stages {
-      /*stage('NPM Setup') {
+      stage('NPM Setup') {
          steps {
             sh 'npm install'
          }
@@ -57,7 +45,7 @@ CODE_SIGN_PROFILE_ID = params?.BUILD_CREDENTIAL_ID?.trim()
          steps {
             sh 'ionic cordova build ios'    
          }
-      }*/
+      }
      
       //stage('APK Sign') {
         //steps {
@@ -82,7 +70,7 @@ CODE_SIGN_PROFILE_ID = params?.BUILD_CREDENTIAL_ID?.trim()
           //}
        //}
 
-        stage('Publish iOS') {
+      /*  stage('Publish iOS') {
           steps {   
               echo "Publish iOS"
           }
@@ -93,7 +81,7 @@ CODE_SIGN_PROFILE_ID = params?.BUILD_CREDENTIAL_ID?.trim()
               echo "Publish Android"
           }
        }
-
+*/
 
   }
 }
