@@ -48,8 +48,10 @@ pipeline {
       }
      stage('make iOS app '){
        steps {
-         sh '/Users/Shared/Jenkins/Home/workspace/ionicpipeline/platform/ios'
-         sh 'xcodebuild -scheme "ionicJenkins"'
+         sh 'cd platforms/ios'
+         sh "xcodebuild -scheme 'ionicJenkins.xcodeproj' -enableCodeCoverage YES -configuration Debug"
+         //sh '/Users/Shared/Jenkins/Home/workspace/ionicpipeline/platform/ios'
+        // sh 'xcodebuild -scheme "ionicJenkins"'
        }
      }
      
