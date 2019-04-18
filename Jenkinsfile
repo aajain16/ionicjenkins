@@ -46,13 +46,13 @@ pipeline {
             sh 'ionic cordova build ios'    
          }
       }
-     stage('make iOS app '){
-       steps {
-         sh "cd platform/ios/xcodebuild -scheme 'ionicJenkins.xcodeproj' -enableCodeCoverage YES -configuration Debug"
+    // stage('make iOS app '){
+      // steps {
+        // sh "cd platform/ios/xcodebuild -scheme 'ionicJenkins.xcodeproj' -enableCodeCoverage YES -configuration Debug"
          //sh '/Users/Shared/Jenkins/Home/workspace/ionicpipeline/platform/ios'
         // sh 'xcodebuild -scheme "ionicJenkins"'
-       }
-     }
+      // }
+     //}
      
       //stage('APK Sign') {
         //steps {
