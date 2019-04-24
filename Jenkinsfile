@@ -26,11 +26,17 @@ pipeline {
               sh 'npm i -D -E @ionic/app-scripts'
          }
       }
+        stage('android Platform Remove ') {
+         steps {
+            sh 'ionic cordova platform rm android'    
+         }
+      }
       stage('Android Build') {
          steps {
             sh 'ionic cordova build android'    
          }
       }
+     
       stage('iOS Platform Remove ') {
          steps {
             sh 'ionic cordova platform rm ios'    
