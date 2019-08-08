@@ -16,17 +16,12 @@ pipeline {
             sh 'npm audit fix'
          }
       }
-      stage('Android Platform ADD') {
-         steps {
-            sh 'ionic cordova platform add android'    
-         }
-      }
       stage('App Script') {
          steps {
               sh 'npm i -D -E @ionic/app-scripts'
          }
       }
-        stage('android Platform Remove ') {
+      stage('android Platform Remove ') {
          steps {
             sh 'ionic cordova platform rm android'    
          }
@@ -36,7 +31,6 @@ pipeline {
             sh 'ionic cordova build android'    
          }
       }
-     
       stage('iOS Platform Remove ') {
          steps {
             sh 'ionic cordova platform rm ios'    
